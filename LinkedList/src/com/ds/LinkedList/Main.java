@@ -1,4 +1,4 @@
-package com.ds;
+package com.ds.LinkedList;
 
 public class Main {
 
