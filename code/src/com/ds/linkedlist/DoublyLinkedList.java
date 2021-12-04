@@ -1,4 +1,4 @@
-package com.ds.LinkedList;
+package com.ds.linkedlist;
 
 public class DoublyLinkedList {
     private Node head;
@@ -95,7 +95,6 @@ public class DoublyLinkedList {
     }
 
     public void delete(int value) {
-        // Todo Improvement required
         int idx = find(value);
         if (idx == -1) {
             System.err.println("Error !! 404 not found");

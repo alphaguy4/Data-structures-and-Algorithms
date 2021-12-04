@@ -1,4 +1,4 @@
-package com.ds.LinkedList;
+package com.ds.linkedlist;
 
 public class LinkedList {
 
@@ -134,8 +134,58 @@ public class LinkedList {
         return node;
     }
 
+    public void insertRecursively(int value, int idx) {
+        head = insertRecursively(head, value, idx);
+    }
 
-    public void printList() {
+    private Node insertRecursively(Node node, int value, int idx) {
+        if(idx == 0) {
+            Node newNode = new Node(value);
+            newNode.next = node;
+            size += 1;
+            return newNode;
+        }
+        node.next = insertRecursively(node.next, value, idx - 1);
+        return node;
+    }
+
+    public void reverseInPlace() {
+        if(head == null) {
+            return;
+        }
+        Node prev = null;
+        Node current = head;
+        Node next = head.next;
+
+        tail = head;
+        while(current != null) {
+            current.next = prev;
+            prev = current;
+            current = next;
+            if(next != null) {
+                next = next.next;
+            }
+        }
+        head = prev;
+    }
+
+    /* Reverse recursively */
+    public void reverse() {
+        reverseRecursively(head);
+    }
+
+    private void reverseRecursively(Node node) {
+        if(node.next == null) {
+            head = tail;
+            return;
+        }
+        reverseRecursively(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
+
+    public void display() {
         Node currentNode = head;
         while(currentNode != null) {
             System.out.print(currentNode.value + " -> ");

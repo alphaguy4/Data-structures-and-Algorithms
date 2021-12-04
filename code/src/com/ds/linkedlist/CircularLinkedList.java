@@ -1,4 +1,4 @@
-package com.ds.LinkedList;
+package com.ds.linkedlist;
 
 public class CircularLinkedList {
 
