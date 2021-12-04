@@ -5,39 +5,27 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to LinkedList world!");
 
-        LinkedList ll = new LinkedList();
-        ll.insertFirst(12);
-        ll.insertFirst(13);
-        ll.insertFirst(14);
-        ll.insertFirst(15);
-        ll.printList();
+        DoublyLinkedList dll = new DoublyLinkedList();
+        dll.insertLast(2);
+        dll.insertFirst(12);
+        dll.insertFirst(15);
+        dll.insertFirst(14);
+        dll.display();
 
-//        ll.insertLast(11);
-//        ll.insertLast(12);
-//        ll.insertLast(15);
-//        ll.printList();
-//
-//        ll.insertAt(13, 2);
-//        ll.insertAt(14, 3);
-//        ll.printList();
-//
-//        ll.deleteFirst();
-//        ll.printList();
-//
-//        ll.deleteLast();
-//        ll.printList();
-//
-//        ll.deleteLast();
-//        ll.deleteFirst();
-//        ll.printList();
+        dll.insertAt(102, 2);
+        dll.display();
 
-        ll.insertAt(100, 2);
-        ll.printList();
+        dll.insertAt(103, 3);
+        dll.display();
 
+        dll.deleteFirst();
+        dll.display();
 
-        ll.delete(13);
-        ll.delete(12);
-        ll.printList();
+        dll.deleteLast();
+        dll.display();
+
+        dll.delete(103);
+        dll.display();
 
     }
 }
