@@ -16,6 +16,5 @@ public class Main {
         ll.reverse();
         ll.insertLast(133);
         ll.display();
-
     }
 }
