@@ -1,6 +1,5 @@
 package com.ds.heap;
 
-
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
@@ -10,9 +9,10 @@ import java.util.stream.IntStream;
 * Implementing Min/Max Heap using a single implementation
 * This program leverages java's BiFunction to choose btw MinHeap or MaxHeap
 * */
+
 public class Heap {
-    List<Integer> heap;
-     BiFunction<Integer, Integer, Boolean> compareFunc;
+    private List<Integer> heap;
+    private BiFunction<Integer, Integer, Boolean> compareFunc;
     int length;
 
     public Heap(int[] array, BiFunction<Integer, Integer, Boolean> func) {
@@ -25,10 +25,14 @@ public class Heap {
     // Time complexity
     // O(n) roughly using siftDown() method
     private void buildHeap(List<Integer> heap) {
-        int lastParentIdx = (heap.size() - 2)/2;
+        int lastParentIdx = (heap.size() - 2) / 2;
         for(int currentIdx = lastParentIdx; currentIdx >= 0; currentIdx--) {
             siftDown(currentIdx, heap.size() - 1, heap);
         }
+    }
+
+    public Integer peek(){
+        return length > 0 ? heap.get(0) : null;
     }
 
     public void insert(int value) {
@@ -100,7 +104,7 @@ public class Heap {
         int[] arr = new int[] {1, 2, 4, 5, 9, 11, 16, 100, 50, 45};
 
 //        Heap minHeap = new Heap(arr, Heap::MIN_HEAP_FUNC);
-//
+
 //        System.out.print("MinHeap :: ");
 //        for(int i = 0; i < minHeap.heap.size(); i++) {
 //            System.out.print(minHeap.heap.get(i) + " ");
@@ -109,15 +113,9 @@ public class Heap {
 
         Heap maxHeap = new Heap(arr, Heap::MAX_HEAP_FUNC);
         maxHeap.insert(55);
-        maxHeap.remove();
-        maxHeap.insert(46);
-        maxHeap.remove();
 
-        System.out.print("MaxHeap :: ");
-        for(int i = 0; i < maxHeap.heap.size(); i++) {
-            System.out.print(maxHeap.heap.get(i)+ " ");
-        }
-        System.out.println();
+        System.out.println("Remove :: " + maxHeap.remove());
+        System.out.println("Peek :: " + maxHeap.peek());
 
 
     }
