@@ -95,7 +95,7 @@ public class LRUCacheProgram {
                 tail = head;
             } else if(head == tail) {
                 node.next = head;
-                node.prev = null;
+                head.prev = node;
                 head = node;
             } else {
                 // this required to adjust the new tail
@@ -103,8 +103,8 @@ public class LRUCacheProgram {
                     removeTail();
                 }
                 node.removeBindings();
-                node.prev = null;
                 node.next = head;
+                head.prev = node;
                 head = node;
             }
 
@@ -157,5 +157,19 @@ public class LRUCacheProgram {
             this.found = found;
             this.value = value;
         }
+    }
+
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(4);
+        cache.insertKeyValuePair("a", "1");
+        cache.insertKeyValuePair("b", "2");
+        cache.insertKeyValuePair("d", "4");
+        cache.insertKeyValuePair("c", "3");
+
+        System.out.println(cache.getMostRecentKey());
+        cache.insertKeyValuePair("d", "123");
+        System.out.println(cache.getValueFromKey("b").value);
+        System.out.println(cache.getMostRecentKey());
+
     }
 }
