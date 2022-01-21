@@ -31,8 +31,20 @@ public class Trie {
                 node = node.children.get(letter);
             }
 
-            node.children.put(endSymbol, new TrieNode());
+            node.children.put(endSymbol, null);
             node.word = word;
+        }
+
+        private boolean searchInTrie(TrieNode root, String str) {
+            TrieNode node = root;
+            for(int idx =0; idx < str.length(); idx++) {
+                char letter = str.charAt(idx);
+                if(!node.children.containsKey(letter)) {
+                    return false;
+                }
+                node = node.children.get(letter);
+            }
+            return node.children.containsKey(endSymbol);
         }
     }
 }
