@@ -21,6 +21,9 @@ public class Trie {
             }
         }
 
+
+        // O(d) - Time
+        // d is the length of the word
         private void populateTrieWith(TrieNode root, String word) {
             TrieNode node = root;
             for(int idx = 0; idx < word.length(); idx++) {
@@ -35,6 +38,8 @@ public class Trie {
             node.word = word;
         }
 
+        // O(d) - Time
+        // d is the length of the str
         private boolean searchInTrie(TrieNode root, String str) {
             TrieNode node = root;
             for(int idx =0; idx < str.length(); idx++) {
