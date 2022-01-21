@@ -21,7 +21,6 @@ public class Trie {
             }
         }
 
-
         // O(d) - Time
         // d is the length of the word
         private void populateTrieWith(TrieNode root, String word) {
