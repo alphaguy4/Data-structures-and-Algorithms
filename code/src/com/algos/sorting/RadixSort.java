@@ -8,6 +8,11 @@ import java.util.stream.IntStream;
 * */
 public class RadixSort {
 
+    // O(d * (n + b)) - Time
+    // O(n + b) - Space
+    // n is number of elements in the array
+    // b is the base of the number
+    // d is the total number of digit in maxNumber
     public static int[] sort(int [] array) {
         if(array.length == 0) {
             return array;
@@ -50,7 +55,6 @@ public class RadixSort {
             array[i] = sortedArray[i];
         }
     }
-
     public static void main(String[] args) {
         int[] arr = {133, 32, 64, 1992};
         RadixSort.sort(arr);
@@ -59,5 +63,4 @@ public class RadixSort {
         }
         System.out.println();
     }
-
 }
